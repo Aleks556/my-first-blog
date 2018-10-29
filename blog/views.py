@@ -4,10 +4,10 @@ from .models import Ekipa
 from django.utils import timezone
 
 # Create your views here.
-def post_list(request):
+def index(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by("published_date")
-    return render(request, "blog/post_list.html", {"posts" : posts})
+    return render(request, "blog/index.html", {"posts" : posts})
 
-def ekipa_list(request):
+def cennik(request):
     uzytkownicy = Ekipa.objects.all()
-    return render(request, "blog/ekipa_list.html", {"uzytkownicy" : uzytkownicy})
+    return render(request, "blog/cennik.html", {"uzytkownicy" : uzytkownicy})
